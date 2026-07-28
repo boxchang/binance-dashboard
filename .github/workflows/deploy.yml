@@ -25,3 +25,11 @@ jobs:
             npm install
             npm run build
             # 若使用 PM2，可以在這裡加入：pm2 restart all
+
+            # 3. 將打包後的靜態檔案同步/複製到 Nginx 服務目錄
+            rsync -av --delete dist/ /var/www/binance-dashboard/
+            # 若無 rsync 亦可用 cp 指令：
+            # cp -r dist/* /var/www/binance-dashboard/
+
+            # 4. (可選) 若有需要重新載入 Nginx 設定
+            # sudo systemctl reload nginx
