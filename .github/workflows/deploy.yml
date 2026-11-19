@@ -20,7 +20,7 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 8080
           script: |
-            cd /home/luxy/vue/binance-dashboard
+            cd /home/luxy/binance-dashboard
             git pull origin main
             npm install
             npm run build
